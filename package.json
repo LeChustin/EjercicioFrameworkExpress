@@ -1,0 +1,22 @@
+{
+  "name": "ejercicioexpress",
+  "version": "1.0.0",
+  "description": "ejercicio con libreria express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeChustin/EjercicioFrameworkExpress.git"
+  },
+  "author": "JDAM",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeChustin/EjercicioFrameworkExpress/issues"
+  },
+  "homepage": "https://github.com/LeChustin/EjercicioFrameworkExpress#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
