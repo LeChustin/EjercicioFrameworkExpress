@@ -26,25 +26,48 @@ app.get('/nombre', (req, res) => {
 });
 
 app.get('/aldaz', (req, res) => {
-    res.send('Jostin Aldaz, 21 años, Estudiante de Desarrollo de Software, adepto a la lectura de manga.');
+    let respuestasss = 'Jostin Aldaz, 21 años, Estudiante de Desarrollo de Software, adepto a la lectura de manga.';
+    res.json(respuestasss);
 
 });
 
-app.get('/david', (req, respuesta) => {
-    let n1 = 3;
-    let n2 = 7;
-    let suma = n1 + n2;
-    respuesta.send(suma+'');
-
-});
-
-app.get('/suma/:n1', (req, respuesta) => {
+app.get('/suma/:n1', (req, res) => {
     let nn1 = parseInt(req.params.n1);
 
     let n2 = 7;
     let suma = nn1 + n2;
-    respuesta.send('oye hermano tu resultado es: '+ suma+'');
+    let respuestass = 'oye hermano tu resultado es: ' + suma;
+    res.json(respuestass);
 
+});
+
+app.get('/calculos/:lado1/:lado2', (req, res) => {
+    const lado1 = parseFloat(req.params.lado1);
+    const lado2 = parseFloat(req.params.lado2);
+
+    if (isNaN(lado1) || isNaN(lado2)) {
+        return res.status(400).send('Por favor ingrese números válidos.');
+    }
+
+    const cuadrado = {
+        figura: 'Cuadrado',
+        area: lado1 * lado1,
+        perimetro: lado1 * 4,
+    };
+
+    const triangulo = {
+        figura: 'Triángulo equilátero',
+        area: (Math.sqrt(3) / 4) * lado1 * lado1,
+        perimetro: lado1 * 3,
+    };
+
+    const pentagono = {
+        figura: 'Pentágono regular',
+        area: (1 / 4) * Math.sqrt(5 * (5 + 2 * Math.sqrt(5))) * lado1 * lado1,
+        perimetro: lado1 * 5,
+    };
+
+    res.json([cuadrado, triangulo, pentagono]);
 });
 
 const PORT = 3001;
